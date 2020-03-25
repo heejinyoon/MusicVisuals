@@ -10,8 +10,7 @@ public class Main
 	public void startUI()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyVisual());
-		
+        processing.core.PApplet.runSketch( a, new CubeVisual());		
 	}
 
 	public void startUS()
