@@ -1,0 +1,7 @@
+package d18123905;
+
+import ie.tudublin.Visual;
+
+public class Tryit extends Visual {
+    
+}

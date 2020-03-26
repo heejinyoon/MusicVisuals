@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import example.CubeVisual;
 import example.MyVisual;
-import example.Visual;
+import example.CubeVisual1;
 
 public class Main
 {	
@@ -16,14 +16,15 @@ public class Main
 	public void startUS()
 	{
 		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new CubeVisual());
+		processing.core.PApplet.runSketch( a, new MyVisual());
 	}
-
-	public void StartCube() 
+	
+	public void startCube() 
 	{
 		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new Visual());
+		processing.core.PApplet.runSketch( a, new CubeVisual1());
 	}
+	
 	public static void main(String[] args)
 	{
 		Main main = new Main();

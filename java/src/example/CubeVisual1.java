@@ -38,12 +38,12 @@ public class CubeVisual1 extends Visual
         noFill();
         lights();
         pushMatrix();
-        //
+        //translate(width / 2, height / 2, 0);
         camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
         translate(0, 0, -200);
         rotateX(angle);
         rotateZ(angle);       
-        float boxSize = 50 + (200 * getSmoothedAmplitude()); 
+        float boxSize = 50 + (200 * getSmoothedAmplitude());  //minimum size = 50, maximum size = 150 
         box(boxSize);   
         popMatrix();
         angle += 0.01f;
