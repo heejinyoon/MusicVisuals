@@ -1,33 +1,25 @@
 package ie.tudublin;
 
-import example.CubeVisual;
-import example.MyVisual;
-import example.RotatingAudioBands;
+import d18123905.MyVisual;
+import d18123905.Cube;
 
 
 public class Main
 {	
-
-	public void startUI()
+	public void test()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new RotatingAudioBands());		
+		processing.core.PApplet.runSketch( a, new Cube());
 	}
-
-	public void startUS()
+	public void Code()
 	{
 		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new CubeVisual());
+		processing.core.PApplet.runSketch( a, new MyVisual());
 	}
 
-	public void StartCube() 
-	{
-		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new Visual());
-	}
 	public static void main(String[] args)
 	{
 		Main main = new Main();
-		main.startUI();			
+		main.Code();			
 	}
 }

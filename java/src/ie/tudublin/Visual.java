@@ -16,12 +16,14 @@ public abstract class Visual extends PApplet
 	private AudioInput ai;
 	private AudioPlayer ap;
 	private AudioBuffer ab;
+	private AudioOutput ao;
 	private FFT fft;
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
 
-	
+	// colour increment variable to random colour 
+	private int currentColour = 0;
 	
 	public void startMinim() 
 	{
@@ -30,8 +32,7 @@ public abstract class Visual extends PApplet
 		fft = new FFT(frameSize, sampleRate);
 
 		bands = new float[(int) log2(frameSize)];
-  		smoothedBands = new float[bands.length];
-
+		smoothedBands = new float[bands.length];
 	}
 
 	float log2(float f) {
@@ -79,10 +80,26 @@ public abstract class Visual extends PApplet
 		}
 	}
 
+	public void calculateCurrentColor() {
+		if (fft.getBand(0) > 75) {
+			currentColour = currentColour + 25;
+
+			if(currentColour > 255) {
+				currentColour = 0;
+			}
+		}
+	}
+
 	public void startListening()
 	{
 		ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
 		ab = ai.left;
+	}
+
+	public void stopListening() 
+	{
+		ao = minim.getLineOut(Minim.STEREO, 44100);
+		ab = ao.left;
 	}
 
 	public void loadAudio(String filename)
@@ -123,6 +140,13 @@ public abstract class Visual extends PApplet
 		return ai;
 	}
 
+	public AudioOutput getAudioOutput() {
+		return ao;
+	}
+
+	public float getCurrentColour() {
+		return currentColour;
+	}
 
 	public AudioBuffer getAudioBuffer() {
 		return ab;
@@ -138,5 +162,9 @@ public abstract class Visual extends PApplet
 
 	public AudioPlayer getAudioPlayer() {
 		return ap;
+	}
+
+	public FFT getFFT() {
+		return fft;
 	}
 }
